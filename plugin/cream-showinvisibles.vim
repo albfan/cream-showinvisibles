@@ -92,13 +92,17 @@
 " o Initial Release
 "
 
+if !exists("g:creamInvisibleShortCut")
+  let g:creamInvisibleShortCut = "<F4>"
+endif
+
 " don't load mappings or autocmd if used with Cream (elsewhere)
 if !exists("$CREAM")
 
 	" mappings
-	imap <silent> <F4> <C-o>:call Cream_list_toggle("i")<CR>
-	vmap <silent> <F4> :<C-u>call Cream_list_toggle("v")<CR>
-	nmap <silent> <F4>      :call Cream_list_toggle("n")<CR>
+	exec "imap <silent> " . g:creamInvisibleShortCut . " <C-o>:call Cream_list_toggle(\"i\")<cr>"
+	exec "vmap <silent> " . g:creamInvisibleShortCut . " :<C-u>call Cream_list_toggle(\"v\")<cr>"
+	exec "nmap <silent> " . g:creamInvisibleShortCut . " :call Cream_list_toggle(\"n\")<cr>"
 
 	" initialize on Buffer enter/new
 	autocmd BufNewFile,BufEnter * call Cream_list_init()
