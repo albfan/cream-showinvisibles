@@ -12,8 +12,6 @@ let g:creamInvisibleShortCut = "<F5>"
 
 This configuration includes characters as nice looking as your specific setup will allow, determined by hardware, operating system and Vim version. (Vim version 6.1.469 supports multi-byte characters, used with UTF-8 encoding.)
 
-This is one of the many custom utilities and functions for gVim from the Cream project (http://cream.sourceforge.net), a configuration of Vim for those of us familiar with Apple and Windows software. 
-
 ## Installation
 
 You can (should) use vundle to install with ease:
@@ -27,3 +25,7 @@ then perform
 ```vim
 :PluginInstall
 ```
+
+## Related projects
+
+This is one of the many custom utilities and functions for gVim from the Cream project (http://cream.sourceforge.net), a configuration of Vim for those of us familiar with Apple and Windows software.
