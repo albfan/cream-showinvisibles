@@ -1,6 +1,6 @@
 "======================================================================
 " cream-showinvisibles.vim
-" 
+"
 " Cream -- An easy-to-use configuration of the famous Vim text editor
 " [ http://cream.sourceforge.net ] Copyright (C) 2002-2004  Steve Hall
 "
@@ -37,7 +37,7 @@
 "
 " This is one of the many custom utilities and functions for gVim from
 " the Cream project (http://cream.sourceforge.net), a configuration of
-" Vim for those of us familiar with Apple and Windows software. 
+" Vim for those of us familiar with Apple and Windows software.
 "
 " Updated: 2004 March 20
 " Version: 3.01
@@ -131,7 +131,7 @@ function! Cream_listchars_init()
 		" greaterthan, followed by space
 		execute "set listchars+=tab:" . nr2char(62) . '\ '
 	endif
-		
+
 	" eol
 	if     strlen(substitute(strtrans(nr2char(182)), ".", "x", "g")) == 1
 		" paragrah symbol (digraph PI)
@@ -152,7 +152,11 @@ function! Cream_listchars_init()
 	endif
 
 	" precedes
-	if     strlen(substitute(strtrans(nr2char(133)), ".", "x", "g")) == 1
+	if !has("gui_running") && &termencoding != "utf-8"
+	"elseif Cream_has("ms") && &encoding == "utf-8"
+		" underscore
+		execute "set listchars+=precedes:" . nr2char(95)
+	elseif     strlen(substitute(strtrans(nr2char(133)), ".", "x", "g")) == 1
 		" ellipses
 		execute "set listchars+=precedes:" . nr2char(133)
 	elseif strlen(substitute(strtrans(nr2char(8249)), ".", "x", "g")) == 1
@@ -167,7 +171,11 @@ function! Cream_listchars_init()
 	endif
 
 	" extends
-	if     strlen(substitute(strtrans(nr2char(133)), ".", "x", "g")) == 1
+	if !has("gui_running") && &termencoding != "utf-8"
+	"elseif Cream_has("ms") && &encoding == "utf-8"
+		" underscore
+		execute "set listchars+=extends:" . nr2char(95)
+	elseif     strlen(substitute(strtrans(nr2char(133)), ".", "x", "g")) == 1
 		" ellipses
 		execute "set listchars+=extends:" . nr2char(133)
 	elseif strlen(substitute(strtrans(nr2char(8250)), ".", "x", "g")) == 1
