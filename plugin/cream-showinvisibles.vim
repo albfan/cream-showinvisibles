@@ -89,42 +89,42 @@ function! Cream_listchars_init()
 	endif
 
 
-	"if &encoding == "latin1"
-	"    " decimal 187 followed by a space (032)
-	"    execute "set listchars+=tab:" . nr2char(187) . '\ '
-	"    " decimal 182
-	"    execute "set listchars+=eol:" . nr2char(182)
-	"    " decimal 183
-	"    execute "set listchars+=trail:" . nr2char(183)
-	"    " decimal 133 (ellipses Â)
-	"    execute "set listchars+=precedes:" . nr2char(133)
-	"    execute "set listchars+=extends:" . nr2char(133)
-	"
-	"" patch 6.1.469 fixes list with multi-byte chars! (2003-04-16)
-	"elseif &encoding == "utf-8" && v:version >=602
-	"\|| &encoding == "utf-8" && v:version == 601 && has("patch469")
-	"    " decimal 187 followed by a space (032)
-	"    execute "set listchars+=tab:" . nr2char(187) . '\ '
-	"    " decimal 182
-	"    execute "set listchars+=eol:" . nr2char(182)
-	"    " decimal 9642 (digraph sB âª )
-	"    " decimal 9675 (digraph m0 â )
-	"    " decimal 9679 (digraph M0 â )
-	"    " decimal 183
-	"    execute "set listchars+=trail:" . nr2char(183)
-	"    " decimal 8222 (digraph :9 â )
-	"    " decimal 8249 (digraph <1 â¹ )
-	"    execute "set listchars+=precedes:" . nr2char(8249)
-	"    " decimal 8250 (digraph >1 âº )
-	"    execute "set listchars+=extends:" . nr2char(8250)
-	"
-	"else
-	"    set listchars+=tab:>\ 		" decimal 62 followed by a space (032)
-	"    set listchars+=eol:$		" decimal 36
-	"    set listchars+=trail:.		" decimal 46
-	"    set listchars+=precedes:_	" decimal 95
-	"    set listchars+=extends:_	" decimal 95
-	"endif
+	if &encoding == "latin1"
+	    " decimal 187 followed by a space (032)
+	    execute "set listchars+=tab:" . nr2char(187) . '\ '
+	    " decimal 182
+	    execute "set listchars+=eol:" . nr2char(182)
+	    " decimal 183
+	    execute "set listchars+=trail:" . nr2char(183)
+	    " decimal 133 (ellipses Â)
+	    execute "set listchars+=precedes:" . nr2char(133)
+	    execute "set listchars+=extends:" . nr2char(133)
+	
+	" patch 6.1.469 fixes list with multi-byte chars! (2003-04-16)
+	elseif &encoding == "utf-8" && v:version >=602
+	\|| &encoding == "utf-8" && v:version == 601 && has("patch469")
+	    " decimal 187 followed by a space (032)
+	    execute "set listchars+=tab:" . nr2char(187) . '\ '
+	    " decimal 182
+	    execute "set listchars+=eol:" . nr2char(182)
+	    " decimal 9642 (digraph sB âª )
+	    " decimal 9675 (digraph m0 â )
+	    " decimal 9679 (digraph M0 â )
+	    " decimal 183
+	    execute "set listchars+=trail:" . nr2char(183)
+	    " decimal 8222 (digraph :9 â )
+	    " decimal 8249 (digraph <1 â¹ )
+	    execute "set listchars+=precedes:" . nr2char(8249)
+	    " decimal 8250 (digraph >1 âº )
+	    execute "set listchars+=extends:" . nr2char(8250)
+	
+	else
+	    set listchars+=tab:>\ 		" decimal 62 followed by a space (032)
+	    set listchars+=eol:$		" decimal 36
+	    set listchars+=trail:.		" decimal 46
+	    set listchars+=precedes:_	" decimal 95
+	    set listchars+=extends:_	" decimal 95
+	endif
 
 endfunction
 call Cream_listchars_init()
