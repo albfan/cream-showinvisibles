@@ -33,10 +33,10 @@ function! Cream_listchars_init()
 	" tab
 	if     strlen(substitute(strtrans(nr2char(187)), ".", "x", "g")) == 1
 		" right angle quote, guillemotright followed by space (digraph >>)
-		execute "set listchars+=tab:" . nr2char(187) . '\ '
+		execute "set listchars+=tab:" . nr2char(187) . '-'
 	else
 		" greaterthan, followed by space
-		execute "set listchars+=tab:" . nr2char(62) . '\ '
+		execute "set listchars+=tab:" . nr2char(62) . '-'
 	endif
 		
 	" eol
@@ -91,7 +91,7 @@ function! Cream_listchars_init()
 
 	if &encoding == "latin1"
 	    " decimal 187 followed by a space (032)
-	    execute "set listchars+=tab:" . nr2char(187) . '\ '
+	    execute "set listchars+=tab:" . nr2char(187) . '-'
 	    " decimal 182
 	    execute "set listchars+=eol:" . nr2char(182)
 	    " decimal 183
@@ -104,7 +104,7 @@ function! Cream_listchars_init()
 	elseif &encoding == "utf-8" && v:version >=602
 	\|| &encoding == "utf-8" && v:version == 601 && has("patch469")
 	    " decimal 187 followed by a space (032)
-	    execute "set listchars+=tab:" . nr2char(187) . '\ '
+	    execute "set listchars+=tab:" . nr2char(187) . '-'
 	    " decimal 182
 	    execute "set listchars+=eol:" . nr2char(182)
 	    " decimal 9642 (digraph sB âª )
@@ -119,7 +119,7 @@ function! Cream_listchars_init()
 	    execute "set listchars+=extends:" . nr2char(8250)
 	
 	else
-	    set listchars+=tab:>\ 		" decimal 62 followed by a space (032)
+	    set listchars+=tab:>-		" decimal 62 followed by a space (032)
 	    set listchars+=eol:$		" decimal 36
 	    set listchars+=trail:.		" decimal 46
 	    set listchars+=precedes:_	" decimal 95
