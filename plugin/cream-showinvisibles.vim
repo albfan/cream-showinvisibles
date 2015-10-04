@@ -144,7 +144,9 @@ function! Cream_listchars_init()
       set listchars+=extends:_	" decimal 95
    endif
 
+   match NonText /\s/
 endfunction
+
 call Cream_listchars_init()
 
 " initialize environment on BufEnter (local)
