@@ -133,12 +133,14 @@ function! Cream_listchars_init()
       execute "set listchars+=precedes:" . nr2char(8249)
       " decimal 8250 (digraph >1 âº )
       execute "set listchars+=extends:" . nr2char(8250)
+      execute "set listchars+=space:" . nr2char(183)
 
    else
       set listchars+=tab:>-		" decimal 62 followed by a space (032)
       set listchars+=eol:$		" decimal 36
       set listchars+=trail:.		" decimal 46
       set listchars+=precedes:_	" decimal 95
+      set listchars+=space:·	" decimal 95
       set listchars+=extends:_	" decimal 95
    endif
 
