@@ -144,6 +144,8 @@ function! Cream_listchars_init()
       set listchars+=extends:_	" decimal 95
    endif
 
+   highlight InitialTabs ctermbg = green guibg = #00FF00
+   highlight ExtraWhitespace ctermbg = red guibg = #FF0000
    match NonText /\s/
 endfunction
 
@@ -153,14 +155,30 @@ call Cream_listchars_init()
 function! Cream_list_init()
    if !exists("g:LIST")
       " initially off
-      set nolist
+      call Deactivate_invisibles()
       let g:LIST = 0
    else
       if g:LIST == 1
-         set list
+         call Activate_invisibles()
       else
-         set nolist
+         call Deactivate_invisibles()
       endif
+   endif
+endfunction
+     
+function! Activate_invisibles()
+   set list
+   let b:init_tabs_hl = matchadd('InitialTabs', '^\t\+')
+   let b:extrawhite_hl = matchadd('ExtraWhitespace', '\s\+$')
+endfunction
+
+function! Deactivate_invisibles()
+   set nolist
+   if exists('b:init_tabs_hl')
+      call matchdelete(b:init_tabs_hl)
+   endif
+   if exists('b:extrawhite_hl')
+      call matchdelete(b:extrawhite_hl)
    endif
 endfunction
 
@@ -168,10 +186,10 @@ endfunction
 function! Cream_list_toggle(mode)
    if exists("g:LIST")
       if g:LIST == 0
-         set list
+         call Activate_invisibles()
          let g:LIST = 1
       elseif g:LIST == 1
-         set nolist
+         call Deactivate_invisibles()
          let g:LIST = 0
       endif
    else
