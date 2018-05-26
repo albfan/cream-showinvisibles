@@ -115,6 +115,7 @@ function! Cream_listchars_init()
       " decimal 133 (ellipses Â)
       execute "set listchars+=precedes:" . nr2char(133)
       execute "set listchars+=extends:" . nr2char(133)
+      execute "set listchars+=nbsp:-"
 
       " patch 6.1.469 fixes list with multi-byte chars! (2003-04-16)
    elseif &encoding == "utf-8" && v:version >=602
@@ -134,6 +135,7 @@ function! Cream_listchars_init()
       " decimal 8250 (digraph >1 âº )
       execute "set listchars+=extends:" . nr2char(8250)
       execute "set listchars+=space:" . nr2char(183)
+      execute "set listchars+=nbsp:-"
 
    else
       set listchars+=tab:>-		" decimal 62 followed by a space (032)
@@ -142,6 +144,7 @@ function! Cream_listchars_init()
       set listchars+=precedes:_	" decimal 95
       set listchars+=space:·	" decimal 95
       set listchars+=extends:_	" decimal 95
+      set listchars+=nbsp:-	" decimal 95
    endif
 
    highlight InitialTabs ctermbg = green guibg = #00FF00
@@ -165,7 +168,7 @@ function! Cream_list_init()
       endif
    endif
 endfunction
-     
+
 function! Activate_invisibles()
    set list
    let b:init_tabs_hl = matchadd('InitialTabs', '^\t\+')
