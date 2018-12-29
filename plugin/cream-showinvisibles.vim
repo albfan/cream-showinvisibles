@@ -176,13 +176,19 @@ function! Activate_invisibles()
 endfunction
 
 function! Deactivate_invisibles()
-   set nolist
-   if exists('b:init_tabs_hl')
-      call matchdelete(b:init_tabs_hl)
-   endif
-   if exists('b:extrawhite_hl')
-      call matchdelete(b:extrawhite_hl)
-   endif
+   try
+      set nolist
+      if exists('b:init_tabs_hl')
+         call matchdelete(b:init_tabs_hl)
+      endif
+      if exists('b:extrawhite_hl')
+         call matchdelete(b:extrawhite_hl)
+      endif
+   catch
+      unlet b:init_tabs_hl
+      unlet b:extrawhite_hl
+      call clearmatches()
+   endtry
 endfunction
 
 " toggle on/off
